@@ -1,4 +1,4 @@
-function interpret_msg = rs_interpret(in_msg, all_code_msg, all_msg)
+//function interpret_msg = rs_interpret(in_msg, all_code_msg, all_msg)
 % RS_INTERPRET 对接收到的RS编码消息进行解释(解码)
 % 输入:
 %   in_msg - 接收到的消息(GF格式)
