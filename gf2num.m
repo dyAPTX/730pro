@@ -1,0 +1,25 @@
+function num = gf2num(gf_a)
+% GF2NUM 将 GF(2^3) 域元素映射到整数 0-7
+% 输入:
+%   gf_a - gf对象 (必须来自GF(2^3))
+% 输出:
+%   num - 对应的整数值
+
+% 参数验证
+if ~isa(gf_a, 'gf') || gf_a.m ~= 3
+    error('输入必须是GF(2^3)域元素');
+end
+
+% 创建映射表 (更高效的实现)
+persistent gf_map;
+if isempty(gf_map)
+    gf_map = containers.Map(...
+        {'0', '1', '2', '3', '4', '5', '6', '7'}, ...
+        0:7);
+end
+
+% 使用映射表查找
+key = char(double(gf_a.x) + '0');
+num = gf_map(key);
+
+end
